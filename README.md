@@ -6,6 +6,10 @@ This is an unofficial Python package for **UTMOS (UTokyo-SaruLab MOS Prediction 
 
 UTMOS is designed for calculating the mean opinion score (MOS) for a given voice sample. It can be used to calculate audio quality for datasets.
 
+## Note
+
+The score is on a scale of 1 to 5.
+
 ## Support
 
 This implementation supports CPU, CUDA, and MPS, as well as ROCm if PyTorch is configured properly. This implementation will automatically use the GPU if available.
