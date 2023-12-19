@@ -5,7 +5,7 @@ setup(
     version='1.0.2',
     install_requires=[
         'torch',
-        'audio',
+        'torchaudio',
         'numpy',
         'fairseq',
         'cached-path',
