@@ -21,9 +21,9 @@ class ChangeSampleRate(nn.Module):
 
 @click.command()
 @click.argument('filename', type=click.Path(exists=True))
-def main(filepath):
+def main(filename):
     model = Score()
-    score = model.calculate_wav_file('audio_file.wav')
+    score = model.calculate_wav_file(filename)
     print(f"Score: {score}")
 
 main()
