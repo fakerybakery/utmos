@@ -4,6 +4,7 @@ import torch.nn as nn
 from cached_path import cached_path
 import lightning_module
 import click
+import score
 class ChangeSampleRate(nn.Module):
     def __init__(self, input_rate: int, output_rate: int):
         super().__init__()
@@ -22,24 +23,8 @@ class ChangeSampleRate(nn.Module):
 
 @click.argument('filename', type=click.Path(exists=True))
 def main(filepath):
-    device = 'cpu'
-    if torch.cuda.is_available():
-        device = 'cuda'
-    if torch.backends.mps.is_available():
-        device = 'mps'
-    model = lightning_module.BaselineLightningModule.load_from_checkpoint(cached_path('hf://ttseval/utmos/model.ckpt')).eval().to(device)
-    wav, sr = torchaudio.load(filepath)
-    osr = 16_000
-    batch = wav.unsqueeze(0).repeat(10, 1, 1)
-    csr = ChangeSampleRate(sr, osr)
-    out_wavs = csr(wav)
-    batch = {
-        'wav': out_wavs,
-        'domains': torch.tensor([0]),
-        'judge_id': torch.tensor([288])
-    }
-    with torch.no_grad():
-        output = model(batch)
-    return output.mean(dim=1).squeeze().detach().numpy()*2 + 3
+    model = utmos.Score()
+    score = model.calculate_wav_file('audio_file.wav')
+    print(f"Score: {score}")
 if __name__ == '__main__':
     main()
