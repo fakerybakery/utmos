@@ -4,7 +4,7 @@ import torch.nn as nn
 from cached_path import cached_path
 import lightning_module
 import click
-import score
+import .score
 class ChangeSampleRate(nn.Module):
     def __init__(self, input_rate: int, output_rate: int):
         super().__init__()
