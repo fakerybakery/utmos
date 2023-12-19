@@ -19,6 +19,7 @@ class ChangeSampleRate(nn.Module):
         output = round_down * (1. - indices.fmod(1.)).unsqueeze(0) + round_up * indices.fmod(1.).unsqueeze(0)
         return output
 
+@click.command()
 @click.argument('filename', type=click.Path(exists=True))
 def main(filepath):
     model = Score()
