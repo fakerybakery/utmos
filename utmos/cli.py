@@ -4,7 +4,7 @@ import torch.nn as nn
 from cached_path import cached_path
 import lightning_module
 import click
-import .score
+from .score import Score
 class ChangeSampleRate(nn.Module):
     def __init__(self, input_rate: int, output_rate: int):
         super().__init__()
@@ -23,7 +23,7 @@ class ChangeSampleRate(nn.Module):
 
 @click.argument('filename', type=click.Path(exists=True))
 def main(filepath):
-    model = utmos.Score()
+    model = Score()
     score = model.calculate_wav_file('audio_file.wav')
     print(f"Score: {score}")
 if __name__ == '__main__':
