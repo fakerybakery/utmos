@@ -1,8 +1,6 @@
-import torchaudio
 import torch
 import torch.nn as nn
 from cached_path import cached_path
-import lightning_module
 import click
 from .score import Score
 class ChangeSampleRate(nn.Module):
