@@ -9,7 +9,8 @@ setup(
         'cached-path',
         'click',
         'torchaudio',
-        'pytorch-lightning'
+        'pytorch-lightning',
+        'transformers'
     ],
     packages=find_packages(),
     author='mrfakename',

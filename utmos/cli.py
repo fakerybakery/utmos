@@ -25,5 +25,5 @@ def main(filepath):
     model = Score()
     score = model.calculate_wav_file('audio_file.wav')
     print(f"Score: {score}")
-if __name__ == '__main__':
-    main()
+
+main()

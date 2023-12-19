@@ -1,3 +1,5 @@
 __pycache__
 .DS_Store
 *.wav
+dist
+utmos.egg-info
