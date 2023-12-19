@@ -28,7 +28,7 @@ utmos audio.wav
 
 ```python
 import utmos
-model = Score() # The model will be automatically downloaded and will automatically utilize the GPU if available.
+model = utmos.Score() # The model will be automatically downloaded and will automatically utilize the GPU if available.
 model.calculate_wav_file('audio_file.wav') # -> Float
 # or model.calculate_wav(wav, sample_rate)
 ```
