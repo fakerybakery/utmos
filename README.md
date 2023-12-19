@@ -8,7 +8,9 @@ UTMOS is designed for calculating the mean opinion score (MOS) for a given voice
 
 ## Note
 
-The score is on a scale of 1 to 5.
+The score is on a scale of 1 to 5. If you'd like a score on 1 to 100, just multiply the score by 20 (`score * 20`).
+
+Example: `new_score = round(score * 100, 2)`
 
 ## Support
 
