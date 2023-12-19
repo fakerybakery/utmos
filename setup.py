@@ -2,16 +2,14 @@ from setuptools import setup, find_packages
 
 setup(
     name='utmos',
-    version='1.0.3',
+    version='1.0.4',
     install_requires=[
-        'torch',
-        'torchaudio',
         'numpy',
         'fairseq',
         'cached-path',
         'click',
-        'pytorch-lightning',
-        'gradio'
+        'torchaudio',
+        'pytorch-lightning'
     ],
     packages=find_packages(),
     author='mrfakename',
