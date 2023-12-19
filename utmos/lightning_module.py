@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import os
 import numpy as np
-from model import load_ssl_model, PhonemeEncoder, DomainEmbedding, LDConditioner, Projection
+from .model import load_ssl_model, PhonemeEncoder, DomainEmbedding, LDConditioner, Projection
 
 
 class BaselineLightningModule(pl.LightningModule):
