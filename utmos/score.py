@@ -2,7 +2,7 @@ import torchaudio
 import torch
 import torch.nn as nn
 from cached_path import cached_path
-import .lightning_module
+from lightning_module import *
 import click
 class ChangeSampleRate(nn.Module):
     def __init__(self, input_rate: int, output_rate: int):
@@ -26,7 +26,7 @@ class Score:
             device = 'cuda'
         if torch.backends.mps.is_available():
             device = 'mps'
-        self.model = lightning_module.BaselineLightningModule.load_from_checkpoint(cached_path('hf://ttseval/utmos/model.ckpt')).eval().to(device)
+        self.model = BaselineLightningModule.load_from_checkpoint(cached_path('hf://ttseval/utmos/model.ckpt')).eval().to(device)
     def calculate_wav_file(self, file):
         wav, sr = torchaudio.load(file)
         return self.calculate_wav(wav, sr)
