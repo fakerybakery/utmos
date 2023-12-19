@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='utmos',
-    version='1.1.2',
+    version='1.1.3',
     install_requires=[
         'numpy',
         'fairseq',
