@@ -2,7 +2,7 @@ import torchaudio
 import torch
 import torch.nn as nn
 from cached_path import cached_path
-from lightning_module import *
+from .lightning_module import *
 import click
 class ChangeSampleRate(nn.Module):
     def __init__(self, input_rate: int, output_rate: int):
