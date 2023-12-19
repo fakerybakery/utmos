@@ -4,7 +4,7 @@ import torch.nn as nn
 import os
 import numpy as np
 from .model import load_ssl_model, PhonemeEncoder, DomainEmbedding, LDConditioner, Projection
-
+from cached_path import cached_path
 
 class BaselineLightningModule(pl.LightningModule):
     def __init__(self, cfg):
@@ -15,7 +15,7 @@ class BaselineLightningModule(pl.LightningModule):
     
     def construct_model(self):
         self.feature_extractors = nn.ModuleList([
-            load_ssl_model(cp_path='wav2vec_small.pt'),
+            load_ssl_model(cp_path=cached_path('hf://ttseval/utmos/wav2vec_small.pt')),
             DomainEmbedding(3,128),
         ])
         output_dim = sum([ feature_extractor.get_output_dim() for feature_extractor in self.feature_extractors])
