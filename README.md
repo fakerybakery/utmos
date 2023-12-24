@@ -17,9 +17,7 @@ Example: `new_score = round(score * 100, 2)`
 
 ## Support
 
-~~This implementation supports CPU, CUDA, and MPS, as well as ROCm if PyTorch is configured properly. This implementation will automatically use the GPU if available.~~
-
-GPU Support temporarily removed. Will debug later
+This implementation supports CPU, CUDA, and MPS, as well as ROCm if PyTorch is configured properly. This implementation will automatically use the GPU if available.
 
 ## Installation
 
