@@ -42,4 +42,4 @@ class Score:
         }
         with torch.no_grad():
             output = self.model(batch)
-        return output.mean(dim=1).squeeze().detach().numpy() * 2 + 3
+        return output.mean(dim=1).squeeze().detach().cpu().numpy() * 2 + 3
