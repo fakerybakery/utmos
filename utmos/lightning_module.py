@@ -32,6 +32,7 @@ class BaselineLightningModule(pl.LightningModule):
 
     def forward(self, inputs):
         outputs = {}
+        inputs = {key: value.to('mps') for key, value in inputs.items()}
         for feature_extractor in self.feature_extractors:
             outputs.update(feature_extractor(inputs))
         x = outputs
