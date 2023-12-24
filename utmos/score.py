@@ -22,10 +22,10 @@ class ChangeSampleRate(nn.Module):
 class Score:
     def __init__(self):
         device = 'cpu'
-        #if torch.cuda.is_available():
-        #    device = 'cuda'
-        #if torch.backends.mps.is_available():
-        #    device = 'mps'
+        if torch.cuda.is_available():
+           device = 'cuda'
+        if torch.backends.mps.is_available():
+           device = 'mps'
         self.model = BaselineLightningModule.load_from_checkpoint(cached_path('hf://ttseval/utmos/model.ckpt')).eval().to(device)
     def calculate_wav_file(self, file):
         wav, sr = torchaudio.load(file)
