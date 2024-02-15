@@ -9,7 +9,7 @@ class Score:
 
     def __init__(
         self,
-        ckpt_path: str = cached_path('hf://ttseval/utmos/model.ckpt'),
+        ckpt_path: str = cached_path('hf://mosnets/utmos/model.ckpt'),
         input_sample_rate: int = 16000,
         device: str = "cpu"):
         """
