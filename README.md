@@ -1,7 +1,7 @@
 NOTE: Not affiliated with original authors of UTMOS!
 
 
-# UTMOS Package
+# Unofficial UTMOS Python Package
 
 This is an unofficial Python package for **UTMOS (UTokyo-SaruLab MOS Prediction System)**. This repository is based on the [original code](https://github.com/sarulab-speech/UTMOS22). The paper is available [here](https://arxiv.org/abs/2204.02152).
 
