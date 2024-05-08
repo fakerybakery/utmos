@@ -12,6 +12,12 @@ class BaselineLightningModule(pl.LightningModule):
         self.cfg = cfg
         self.construct_model()
         self.save_hyperparameters()
+        device = 'cpu'
+        if torch.cuda.is_available():
+           device = 'cuda'
+        if torch.backends.mps.is_available():
+           device = 'mps'
+        self.device = device
     
     def construct_model(self):
         self.feature_extractors = nn.ModuleList([
@@ -32,7 +38,7 @@ class BaselineLightningModule(pl.LightningModule):
 
     def forward(self, inputs):
         outputs = {}
-        inputs = {key: value.to('mps') for key, value in inputs.items()}
+        inputs = {key: value.to(self.device) for key, value in inputs.items()}
         for feature_extractor in self.feature_extractors:
             outputs.update(feature_extractor(inputs))
         x = outputs
