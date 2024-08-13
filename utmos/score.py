@@ -26,7 +26,7 @@ class Score:
            device = 'cuda'
         if torch.backends.mps.is_available():
            device = 'mps'
-        self.model = BaselineLightningModule.load_from_checkpoint(cached_path('hf://mosnets/utmos/model.ckpt')).eval().to(device)
+        self.model = BaselineLightningModule.load_from_checkpoint(cached_path('hf://mosmodels/utmos/model.ckpt')).eval().to(device)
     def calculate_wav_file(self, file):
         wav, sr = torchaudio.load(file)
         return self.calculate_wav(wav, sr)
